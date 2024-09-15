@@ -1,5 +1,6 @@
-body {
-  margin: 1.5em;
+html, body {
+  width: 100%;
+  overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -12,13 +13,12 @@ a {
   position: absolute;
   top: 0;
   right: 0;
+  left: 0; /* Ensure it's constrained to the viewport */
   background: url("../Photos/Photo.jpg");
   background-size: cover;
-  background-position: center;
-  background-position-x: 20%;
-  background-position-y: 20%;
-  width: 100%;
-  height: 100vh;
+  background-position: center 20%;
+  width: 100vw; /* Ensure the width fits the viewport */
+  height: 100vh; /* Full height of the viewport */
   z-index: -1;
   -webkit-animation: introLoad 2s forwards;
           animation: introLoad 2s forwards;
@@ -40,10 +40,10 @@ nav {
   height: 100vh;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  -webkit-transition: -webkit-transform .5s easy-in-out;
-  transition: -webkit-transform .5s easy-in-out;
-  transition: transform .5s easy-in-out;
-  transition: transform .5s easy-in-out, -webkit-transform .5s easy-in-out;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
 }
 
 ul {
@@ -118,7 +118,7 @@ section.hero .down-arrow path {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 11em;
+  height: 15em;
 }
 
 .more-info .title {
@@ -135,35 +135,25 @@ section.hero .down-arrow path {
           transform: translate(0%);
 }
 
-@media only screen and (min-width: 680px) {
-  body {
-    margin: 1.5em 5em;
-    font-family: 'Poppins' , sans-serif;
+
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  .feature {
+    gap: 0;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  h1 {
-    font-size: 1.5rem;
-    margin-right: 2em;
-  }
-  .subhead {
-    font-size: 1em;
-    margin-top: 7em;
-  }
-  .down-arrow {
-    margin-bottom: 8em;
-    margin-left: 20em;
-  }
-}
 
-@media only screen and (min-width: 920px) {
+@media only screen and (min-width: 980px) {
   .menu {
     display: none;
   }
   nav {
-    -webkit-transform: translatex(0);
-            transform: translatex(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
     position: unset;
     display: block;
     width: auto;
@@ -191,6 +181,7 @@ section.hero .down-arrow path {
   }
   .hero-img {
     left: unset;
+    max-width: 100%;
     right: 0;
     width: 50%;
     height: 60%;
@@ -211,29 +202,36 @@ section.hero .down-arrow path {
     stroke: black;
     position: unset;
     margin-top: 5em;
+    
   }
   section.hero svg.down-arrow path {
     fill: black;
   }
   .feature {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (auto)[2];
-        grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
     gap: 3em;
     margin-bottom: 8em;
+    background-color: #FCFAEE;
   }
+  
   .feature img {
     width: 25em;
   }
+  
   .feature .content {
     text-align: right;
     width: 25em;
+    margin-left: 10px;
   }
+
+ 
+  
 }
 
 .feature.left {
-      grid-template-areas: "left right";
+  grid-template-areas: "left right";
+
 }
 
 .feature.left img {
@@ -245,19 +243,142 @@ section.hero .down-arrow path {
 .feature.left .content {
   text-align: left;
   width: 25em;
+  margin-right: 180px;
+  margin-left: 0px;
   -ms-grid-column-align: left;
       justify-self: left;
 }
 
-@media only screen and (min-width: 1200px) {
-  .wrapper {
-    width: 1200px;
+
+
+
+@media only screen and (max-width: 980px) {
+ 
+  h1 {
+    font-size: 2.5rem; /* Adjust font size for smaller screens */
+    margin: 3.5em 2em 1em 0em;
+    text-align: left;
+    max-width: 400px;
+   
+  }
+  
+  .subhead {
+    font-size: 1.3rem;
+   
+    margin: 1em 1em 1em 0em; /* Adjust vertical spacing */
+    max-width: 300px;
+  }
+  
+  section.hero {
+    height: 100vh; /* Ensure it takes full height of the screen */
+    display: flex;
+    flex-direction: column;
+    
+    padding: 1em; /* Add some padding for better spacing */
+  }
+
+  /* Adjust down-arrow position */
+  section.hero .down-arrow {
+    bottom: 7em;
+    margin-left: 0;
+    right: 40px;
+    transform: translateX(-50%);
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .feature img {
+    width: 100%;
+    max-width: 400px; /* Limit the image size */
+  }
+
+  .feature .content {
+    text-align: center;
+    max-width: 400px;
+  }
+
+ .feature.left .content {
+
+  text-align: center;
+
+  margin-left: 32%;
+
+}
+
+  .more-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .more-info img {
+    width: 100%;
+    height: 15em;
+    object-fit: cover;
+  }
+  
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem; /* Even smaller font for very small screens */
+    margin: 4.2em 2em 1em 0em;
+  }
+  
+  .subhead {
+    font-size: 1rem;
+    margin-top: 3.5em;
+    max-width: 230px;
+  }
+  
+  section.hero .down-arrow {
+    bottom: 7em;
+    margin-left: 0;
+    right: 20px;
+    transform: translateX(-50%);
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .feature img {
+    width: 100%;
+    max-width: 300px; /* Limit the image size */
+  }
+
+  .feature .content {
+    text-align: center;
+    max-width: 300px;
     margin: 0 auto;
   }
-  .feature {
-    gap: 0;
+
+  .more-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .more-info img {
+    width: 100%;
+    max-width: 250px;
+    height: 150px;
+    object-fit: cover;
   }
 }
+
+
 
 @-webkit-keyframes introLoad {
   from {
@@ -326,4 +447,3 @@ section.hero .down-arrow path {
     opacity: 1;
   }
 }
-/*# sourceMappingURL=main.css.map */
