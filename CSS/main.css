@@ -1,4 +1,5 @@
 html, body {
+  margin: 0;
   width: 100%;
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
@@ -79,14 +80,16 @@ header {
 }
 
 header svg {
-  width: 2em;
-  margin-top: -.6em;
+  width: 3em;
+  margin-top: 1em;
+  margin-right: 1.2em;
   cursor: pointer;
 }
 
 h1 {
   font-size: 3rem;
   margin-top: 2em;
+  
   line-height: 3.3rem;
 }
 
@@ -188,6 +191,7 @@ section.hero .down-arrow path {
   }
   .logo {
     color: black;
+    font-size:40px;
   }
   .logo span {
     color: red;
@@ -212,7 +216,7 @@ section.hero .down-arrow path {
     grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
     gap: 3em;
     margin-bottom: 8em;
-    background-color: #FCFAEE;
+    background-color: #eef9fc;
   }
   
   .feature img {
@@ -263,13 +267,14 @@ section.hero .down-arrow path {
   }
   
   .subhead {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
    
     margin: 1em 1em 1em 0em; /* Adjust vertical spacing */
-    max-width: 300px;
+    max-width: 400px;
   }
   
   section.hero {
+    
     height: 100vh; /* Ensure it takes full height of the screen */
     display: flex;
     flex-direction: column;
@@ -279,7 +284,7 @@ section.hero .down-arrow path {
 
   /* Adjust down-arrow position */
   section.hero .down-arrow {
-    bottom: 7em;
+    bottom: 10em;
     margin-left: 0;
     right: 40px;
     transform: translateX(-50%);
@@ -323,17 +328,28 @@ section.hero .down-arrow path {
     height: 15em;
     object-fit: cover;
   }
+
+  .logo {
+    font-size: 30px;
+  }
+
+  img.last-img {
+
+    margin-bottom: 60px;
+
+  }
   
 }
 
 @media only screen and (max-width: 480px) {
+     
   h1 {
-    font-size: 1.8rem; /* Even smaller font for very small screens */
+    font-size: 1.9rem; /* Even smaller font for very small screens */
     margin: 4.2em 2em 1em 0em;
   }
   
   .subhead {
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-top: 3.5em;
     max-width: 230px;
   }
@@ -376,7 +392,11 @@ section.hero .down-arrow path {
     height: 150px;
     object-fit: cover;
   }
+
+ 
+
 }
+
 
 
 
